@@ -29,7 +29,13 @@ func (app *App) router() {
 
 	setupGoth()
 
-	api := app.Server.Group("/api").Use(cors.Default())
+	config := cors.DefaultConfig()
+	config.AllowAllOrigins = true
+	config.AllowCredentials = true
+	config.AllowMethods = []string{"GET", "POST", "OPTIONS", "HEAD"}
+	config.AllowHeaders = []string{"Origin", "Content-Length", "Content-Type", "Authorization"}
+
+	api := app.Server.Group("/api").Use(cors.New(config))
 	api.GET("/ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "pong",
