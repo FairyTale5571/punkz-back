@@ -31,6 +31,9 @@ func (app *App) router() {
 
 	app.Server.Use(cors.Default(),
 		func(c *gin.Context) {
+
+			c.Header("Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
+
 			c.Header("Access-Control-Allow-Origin", "*")
 			c.Header("Access-Control-Allow-Credentials", "true")
 		},
