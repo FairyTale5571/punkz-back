@@ -156,9 +156,8 @@ func (s *site) AuthCallback(c *gin.Context) {
 		})
 		return
 	}
-
 	c.SetCookie("jwt", tokenString, int(128*time.Hour), "/", "", true, true)
-	c.Redirect(http.StatusFound, "http://localhost:5173")
+	c.Redirect(http.StatusFound, "http://localhost:5173?jwt="+tokenString)
 }
 
 func isValidSolanaAddress(address string) bool {
