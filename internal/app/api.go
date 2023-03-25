@@ -29,7 +29,12 @@ func (app *App) router() {
 
 	setupGoth()
 
-	app.Server.Use(cors.Default())
+	app.Server.Use(cors.Default(),
+		func(c *gin.Context) {
+			c.Header("Access-Control-Allow-Origin", "*")
+			c.Header("Access-Control-Allow-Credentials", "true")
+		},
+	)
 
 	api := app.Server.Group("/api")
 	api.GET("/ping", func(c *gin.Context) {
