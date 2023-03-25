@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/markbates/goth"
 	"github.com/markbates/goth/providers/discord"
@@ -28,7 +29,14 @@ func (app *App) router() {
 
 	setupGoth()
 
-	api := app.Server.Group("/api")
+	api := app.Server.Group("/api").Use(
+		cors.New(
+			cors.Config{
+				AllowOrigins: []string{"*"},
+				AllowMethods: []string{"GET", "POST", "OPTIONS"},
+			},
+		),
+	)
 	api.GET("/ping", app.Site.HasAuth, func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "pong",
