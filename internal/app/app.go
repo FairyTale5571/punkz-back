@@ -33,7 +33,7 @@ func NewApp() (*App, error) {
 		Server: gin.Default(),
 		Site:   site.New(database, discord),
 		DS:     discord,
-		TG:     tg.New(),
+		TG:     tg.New(database),
 		DB:     database,
 	}, nil
 }

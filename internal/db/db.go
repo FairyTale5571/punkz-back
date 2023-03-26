@@ -2,6 +2,7 @@ package db
 
 import (
 	"context"
+	"github.com/fairytale5571/punkz/internal/bots/tg"
 	"time"
 
 	"github.com/fairytale5571/punkz/internal/site"
@@ -12,6 +13,7 @@ import (
 
 type Provider interface {
 	site.DBProvider
+	tg.DBProvider
 }
 
 type database struct {

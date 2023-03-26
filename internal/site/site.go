@@ -17,7 +17,7 @@ import (
 
 type DBProvider interface {
 	InsertWallet(w WalletDatabase) error
-	GetWallets() ([]WalletDatabase, error)
+
 	GetWallet(userID string) (WalletDatabase, error)
 }
 
@@ -30,7 +30,6 @@ type Provider interface {
 	AuthCallback(c *gin.Context)
 
 	CreateWallet(c *gin.Context)
-	GetWallets(c *gin.Context)
 }
 
 type site struct {
@@ -170,15 +169,4 @@ func isValidSolanaAddress(address string) bool {
 		return false
 	}
 	return true
-}
-
-func (s *site) GetWallets(c *gin.Context) {
-	wallets, err := s.db.GetWallets()
-	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{
-			"error": "could not get wallets",
-		})
-		return
-	}
-	c.JSON(http.StatusOK, wallets)
 }
