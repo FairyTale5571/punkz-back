@@ -13,7 +13,7 @@ import (
 var jwtSecret = os.Getenv("SESSION_SECRET")
 
 func (s *site) jwtClaims(c *gin.Context) (jwt.MapClaims, error) {
-	cookie := c.GetHeader("jwt")
+	cookie := c.Request.Header.Get("Authorization")
 
 	token, err := jwt.Parse(cookie, func(token *jwt.Token) (interface{}, error) {
 		return []byte(jwtSecret), nil
