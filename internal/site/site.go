@@ -128,7 +128,8 @@ func (s *site) AuthCallback(c *gin.Context) {
 	user, err := gothic.CompleteUserAuth(c.Writer, c.Request)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
-			"error": "could not complete user auth",
+			"error":   "could not complete user auth",
+			"message": err.Error(),
 		})
 		return
 	}
