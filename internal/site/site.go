@@ -125,6 +125,7 @@ func (s *site) GetUser(c *gin.Context) {
 }
 
 func (s *site) AuthCallback(c *gin.Context) {
+	c.AddParam("provider", "discord")
 	user, err := gothic.CompleteUserAuth(c.Writer, c.Request)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
