@@ -49,7 +49,7 @@ func (app *App) router() {
 	})
 
 	api.GET("/auth", app.Site.Auth)
-	api.GET("/auth/callback", app.Site.AuthCallback)
+	api.GET("/auth/discord/callback", app.Site.AuthCallback)
 	api.GET("/user", app.Site.HasAuth, app.Site.GetUser)
 	api.POST("/wallet", app.Site.HasAuth, app.Site.OnDiscordPresent, app.Site.CreateWallet)
 }
