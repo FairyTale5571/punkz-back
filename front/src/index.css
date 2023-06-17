@@ -1,0 +1,216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Segoe UI 7';
+    src: url('./assets/SegoeUI.ttf') format('truetype');
+}
+
+html,
+body, 
+#root {
+    height: 100%;
+}
+
+
+.radial-gradient {
+    background-image: radial-gradient(143.51% 3414.06% at 100% 51.22%, #575555 4.03%, #222222 7.56%, #222222 17.37%, #575555 24.7%, #222222 31.28%, #575555 38.09%, #575555 40.14%, #222222 46.18%, #222222 54.22%, #575555 70.55%, #222222 100%);
+}
+
+.button-radial-gradient {
+    background-image: radial-gradient(35.96% 52.56% at 50.85% 110.26%, #FFFFFF 0%, rgba(255, 255, 255, 0) 98.28%);
+}
+ 
+.button-sep-w-gradient:before {
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.00716985) 4.76%, rgba(255, 255, 255, 0.2) 32.48%, rgba(255, 255, 255, 0.2) 49.84%, rgba(255, 255, 255, 0.2) 66.52%, rgba(255, 255, 255, 0) 98.91%);
+}
+.button-sep-b-gradient:after {
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.00716985) 4.76%, rgba(0, 0, 0, 0.16) 32.48%, rgba(0, 0, 0, 0.16) 49.84%, rgba(0, 0, 0, 0.16) 66.52%, rgba(0, 0, 0, 0) 98.91%);
+}
+
+.button-taskbar-hover-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: linear-gradient(309.22deg, rgba(255, 255, 255, 0) 64.85%, #FFFFFF 104.73%), radial-gradient(107.42% 134.21% at 86.44% 178.95%, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.427) 98.72%, rgba(255, 255, 255, 0.511) 100%);
+    box-shadow: inset 0px 0px 0px 1px #4b5056, inset 0px 0px 0px 2px #9c9c9c;
+    opacity: 0;
+    transition: 0.35s;
+}
+
+.taskbar-button:hover > .button-taskbar-hover-gradient {
+    opacity: 1;
+}
+
+.button-hideall-gradient {
+    background-image: radial-gradient(273.33% 112.05% at 83.33% 73.75%, rgba(0, 0, 0, 0.2) 44.13%, rgba(255, 255, 255, 0.2) 46.92%, rgba(255, 255, 255, 0.2) 51.42%);
+}
+
+.taskbar-button:hover::after,
+.taskbar-button:hover::before,
+.taskbar-button:hover > div::after,
+.taskbar-button:hover > div::before {
+    opacity: 0;
+}
+
+.clock-shadow {
+    text-shadow: -0.7px 0px 0px rgba(255, 255, 255, 0.25), 0.7px 0px 0px rgba(255, 255, 255, 0.25);
+}
+
+.desktop-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background: rgba(216, 232, 247, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 2px; 
+    transition: 0.3s ease-in-out;
+    z-index: -1;
+}
+.desktop-button:hover::after {
+    opacity: 1;
+}
+
+.desktop-button-hover::after {
+    opacity: 1
+}
+
+.modal-body-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(227.86deg, #817D7D -2.55%, #222222 2.95%, #222222 5.22%, #575555 7.7%, #575555 8.89%, #222222 11.9%, #222222 23.7%, #575555 27.13%, #575555 28.76%, #222222 36.43%, #222222 40.58%, #484646 44.39%, #484646 45.32%, #222222 46.97%, #222222 51.33%, #575555 59.01%, #555353 66.3%, #222222 72.08%, #222222 79.97%, #555353 83.63%, #555353 86.67%, #222222 89.36%);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0px 6px 0px 0px;
+    z-index: -1;
+}
+
+.modal-text-shadow {
+    text-shadow: 0px 0px 20px #FFFFFF, 0px 0px 4px rgba(255, 255, 255, 0.45), 0px 0px 4px rgba(255, 255, 255, 0.45), 0px 0px 4px rgba(255, 255, 255, 0.65), 0px 0px 4px rgba(255, 255, 255, 0.25), 0px 0px 20px rgba(255, 255, 255, 0.25);
+}
+
+.modal-close-button:before {
+    content: '';
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(159, 160, 165, 0.6) 100%);
+    opacity: 0.4;
+    border-radius: 0px 0px 4px 4px;
+    position: absolute;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    top: calc(50% + 0.9px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.modal-input {
+    outline: none;
+}
+
+.modal-input::placeholder {
+    font-family: 'Segoe UI';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: rgba(133, 130, 130, 0.8956);
+}
+
+.modal-input-border {
+    background: linear-gradient(180deg, #767D84 85.42%, #C3C9D0 100%);
+    border-radius: 3px;
+    padding: 1.5px;
+}
+
+.button {
+    position: relative;
+    background: linear-gradient(180deg, #EBEBEB 43.73%, #D2D2D2 48.85%, #E2E2E2 83.47%);
+    border: 1px solid #757575;
+    box-shadow: inset 0px 0px 0px 1px #F5F5F5;
+    text-shadow: 0.5px 0px 0px rgba(215, 147, 67, 0.45), -0.5px 0px 0px rgba(0, 76, 90, 0.35);
+    line-height: 13px;
+    transition: 0.5s;
+}
+
+.button:hover {
+    background: linear-gradient(180deg, #E4F4FD 45.79%, #C7E9FB 46.37%);
+}
+
+.button:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #3C7FB1;
+    box-shadow: inset 0px 0px 1px 2.3px #24CFFD;
+    border-radius: 3px;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.button:hover::after {
+    opacity: 1;
+}
+
+.dockpanel {
+     background: linear-gradient(216.62deg, rgba(129, 125, 125, 0.85) 0%, rgba(34, 34, 34, 0.85) 5.92%, rgba(34, 34, 34, 0.85) 8.37%, rgba(87, 85, 85, 0.85) 11.03%, rgba(87, 85, 85, 0.85) 12.32%, rgba(34, 34, 34, 0.85) 15.56%, rgba(34, 34, 34, 0.85) 28.26%, rgba(87, 85, 85, 0.85) 31.96%, rgba(87, 85, 85, 0.85) 33.71%, rgba(34, 34, 34, 0.85) 41.97%, rgba(34, 34, 34, 0.85) 46.44%, rgba(72, 70, 70, 0.85) 50.54%, rgba(72, 70, 70, 0.85) 51.54%, rgba(34, 34, 34, 0.85) 53.32%, rgba(34, 34, 34, 0.85) 58.01%, rgba(87, 85, 85, 0.85) 66.28%, rgba(85, 83, 83, 0.85) 74.13%, rgba(34, 34, 34, 0.85) 80.36%, rgba(34, 34, 34, 0.85) 88.85%, rgba(85, 83, 83, 0.85) 92.79%, rgba(85, 83, 83, 0.85) 96.06%, rgba(34, 34, 34, 0.85) 98.96%);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0px 6px 0px 0px;
+}
+
+.dockpanel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
+.dockpanel-avatar {
+    background: linear-gradient(180deg, #D9D9D9 0%, #414141 100%);
+    filter: drop-shadow(0px 1.14583px 1.14583px rgba(0, 0, 0, 0.51));
+}
+
+.dockpanel-avatar-square {
+    background: linear-gradient(0deg, #D9D9D9 0%, #787878 100%);
+    box-shadow: 0px 0px 1.14583px 1.14583px rgba(0, 0, 0, 0.16);
+    border-radius: 2.44444px;
+}
+
+.dockpanel-avatar-item {
+    background: #FFFFFF;
+    border: 0.611111px solid #4D4D4D;
+    border-radius: 1.22222px;
+}
+
+.dockpanel-text {
+    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
+}
+
+.glare-b-r {
+    background: linear-gradient(179.23deg, rgba(159, 159, 159, 0) 29.51%, rgba(193, 193, 193, 0.5) 93.68%);
+    background-blend-mode: lighten;
+    filter: blur(3.5px);
+}
+
+.dockpanel-button-active {
+    background: linear-gradient(180deg, rgba(216, 232, 247, 0.3) 0%, rgba(193, 221, 250, 0.3) 100%);
+    border: 1px solid #949494;
+    border-radius: 2px;
+}

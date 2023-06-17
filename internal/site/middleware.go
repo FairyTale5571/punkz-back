@@ -46,7 +46,6 @@ func (s *site) HasAuth(c *gin.Context) {
 		"exp":          claims["exp"],
 	})
 	c.Next()
-
 	return
 }
 
